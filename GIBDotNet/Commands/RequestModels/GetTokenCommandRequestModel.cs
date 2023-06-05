@@ -6,6 +6,7 @@
         /// GIB tarafından verilmiş portal kullanıcı adı
         /// </summary>
         public string UserId { get; set; }
+
         /// <summary>
         /// GIB tarafından verilmiş portal şifresi
         /// </summary>

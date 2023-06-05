@@ -150,6 +150,6 @@ namespace GIBDotNet.Commands.GIBRequestModels
             Invoice = JsonSerializer.Serialize(fatura);
         }
 
-        string Format(double val) => val.ToString().Replace(",", ".");
+        private string Format(double val) => val.ToString().Replace(",", ".");
     }
 }

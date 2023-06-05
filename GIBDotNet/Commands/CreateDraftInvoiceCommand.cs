@@ -13,12 +13,12 @@ namespace GIBDotNet.Commands
     {
         public async Task<BaseGIBResponse<CreateDraftInvoiceCommandResponseModel>> DispatchCommand(CreateDraftInvoiceRequestModel requestModel)
         {
-            BaseGIBResponse<CreateDraftInvoiceCommandResponseModel> responseModel = new BaseGIBResponse<CreateDraftInvoiceCommandResponseModel>();
+            var responseModel = new BaseGIBResponse<CreateDraftInvoiceCommandResponseModel>();
             try
             {
                 MakeCommand("earsiv-services/dispatch");
                 AddReferer($"index.jsp?token={requestModel.Token}&v=1624476996318");
-                
+
                 var gibRequestModel = new CreateDraftInvoiceGIBRequestModel(requestModel);
                 var callId = Guid.NewGuid().ToString().Substring(0, 15);
                 var cmd = CommandConstants.GetCommandTitle(typeof(CreateDraftInvoiceCommand));
@@ -33,7 +33,7 @@ namespace GIBDotNet.Commands
                 responseModel.Success(new CreateDraftInvoiceCommandResponseModel());
                 return responseModel;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
                 responseModel.Fail();

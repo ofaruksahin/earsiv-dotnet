@@ -68,6 +68,10 @@ namespace GIBDotNet.Commands
         {
             return await _client.ExecuteAsync(_request);
         }
+        protected async Task<byte[]> DownloadData()
+        {
+            return await _client.DownloadDataAsync(_request);
+        }
 
         private void SetDefaultHeaders(RestRequest request)
         {

@@ -31,5 +31,11 @@ namespace GIBDotNet.Implementations
         {
             return _commandDispatcher.Dispatch(new CreateDraftInvoiceCommand(), invoice);
         }
+
+        public Task<BaseGIBResponse<DownloadHTMLCommandResponseModel>> DownloadHTML(string token, string ettn)
+        {
+            var requestModel = new DownloadHTMLCommandRequestModel(token, ettn);
+            return _commandDispatcher.Dispatch(new DownloadHTMLCommand(), requestModel);
+        }
     }
 }

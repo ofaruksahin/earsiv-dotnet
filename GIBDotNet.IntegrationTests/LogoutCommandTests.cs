@@ -13,7 +13,7 @@
 
             var logoutResponse = await gibService.Logout(getTokenResponse.Data.Token);
 
-            Assert.True(logoutResponse.IsSuccess,logoutResponse.Errors.FirstOrDefault());
+            Assert.True(logoutResponse.IsSuccess, logoutResponse.Errors.FirstOrDefault());
         }
 
         [Fact]

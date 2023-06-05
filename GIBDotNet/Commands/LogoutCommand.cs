@@ -12,7 +12,7 @@ namespace GIBDotNet.Commands
     {
         public async Task<BaseGIBResponse<LogoutCommandResponseModel>> DispatchCommand(LogoutCommandRequestModel requestModel)
         {
-            BaseGIBResponse<LogoutCommandResponseModel> responseModel = new BaseGIBResponse<LogoutCommandResponseModel>();
+            var responseModel = new BaseGIBResponse<LogoutCommandResponseModel>();
             try
             {
                 MakeCommand("earsiv-services/assos-login");
@@ -28,12 +28,12 @@ namespace GIBDotNet.Commands
                 responseModel.Success(new LogoutCommandResponseModel());
                 return responseModel;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
                 responseModel.Fail();
             }
-            
+
             return responseModel;
         }
     }

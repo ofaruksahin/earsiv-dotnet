@@ -13,7 +13,7 @@ namespace GIBDotNet.Commands
     {
         public async Task<BaseGIBResponse<GetTokenCommandResponseModel>> DispatchCommand(GetTokenCommandRequestModel requestModel)
         {
-            BaseGIBResponse<GetTokenCommandResponseModel> responseModel = new BaseGIBResponse<GetTokenCommandResponseModel>();
+            var responseModel = new BaseGIBResponse<GetTokenCommandResponseModel>();
 
             try
             {

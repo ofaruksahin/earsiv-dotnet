@@ -6,7 +6,7 @@ namespace GIBDotNet.IntegrationTests
     public class CreateDraftInvoiceCommandTests : BaseTests
     {
         [Fact]
-        public async Task WhenCorrectInvoiceReturnsSuccess()
+        public async Task<string> WhenCorrectInvoiceReturnsSuccess()
         {
             var gibService = GIBService;
             var getTokenResponse = await gibService.GetToken(TestUserId, TestPassword);
@@ -36,6 +36,10 @@ namespace GIBDotNet.IntegrationTests
             });
 
             var response = await gibService.CreateDraftInvoice(requestModel);
+
+            Assert.True(response.IsSuccess);
+
+            return requestModel.Ettn;
         }
     }
 }

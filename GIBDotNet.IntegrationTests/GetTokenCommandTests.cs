@@ -3,12 +3,12 @@
     [Collection(BaseTests.CollectionName)]
     public class GetTokenCommandTests : BaseTests
     {
-        [Fact]        
+        [Fact]
         public async Task WhenCorrectCredentialsReturnsSuccess()
         {
             var gibService = GIBService;
             var getTokenResponse = await gibService.GetToken(TestUserId, TestPassword);
-            Assert.True(getTokenResponse.IsSuccess,getTokenResponse.Errors.FirstOrDefault());
+            Assert.True(getTokenResponse.IsSuccess, getTokenResponse.Errors.FirstOrDefault());
             await gibService.Logout(getTokenResponse.Data.Token);
         }
 
@@ -17,7 +17,7 @@
         {
             var gibService = GIBService;
             var getTokenResponse = await gibService.GetToken(TestUserId, "");
-            Assert.False(getTokenResponse.IsSuccess,getTokenResponse.Errors.FirstOrDefault());
+            Assert.False(getTokenResponse.IsSuccess, getTokenResponse.Errors.FirstOrDefault());
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using GIBDotNet.Exceptions;
+﻿using GIBDotNet.Commands;
+using GIBDotNet.Exceptions;
 using System;
 using System.Collections.Generic;
 
@@ -8,12 +9,12 @@ namespace GIBDotNet
     {
         private static IDictionary<Type, string> CommandTitles = new Dictionary<Type, string>()
         {
-
+            {typeof(CreateDraftInvoiceCommand),"EARSIV_PORTAL_FATURA_OLUSTUR" }
         };
 
         private static IDictionary<Type, string> PageTitles = new Dictionary<Type, string>
         {
-
+            {typeof(CreateDraftInvoiceCommand),"RG_BASITFATURA" }
         };
 
         public static string GetCommandTitle(Type type)

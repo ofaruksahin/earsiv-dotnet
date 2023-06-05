@@ -1,11 +1,12 @@
-﻿using GIBDotNet.Contracts;
+﻿using GIBDotNet.Commands.ResponseModels;
+using GIBDotNet.Contracts;
 using System.Threading.Tasks;
 
 namespace GIBDotNet.Implementations
 {
     public class GIBCommandDispatcher : IGIBCommandDispatcher
     {
-        public async Task<TResponse> Dispatch<TRequest, TResponse>(IGIBCommand<TRequest, TResponse> command, TRequest request)
+        public async Task<BaseGIBResponse<TResponse>> Dispatch<TRequest, TResponse>(IGIBCommand<TRequest, TResponse> command, TRequest request)
             where TRequest : class, new()
             where TResponse : class, new()
         {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GIBDotNet.Commands.ResponseModels;
+using System;
 using System.Threading.Tasks;
 
 namespace GIBDotNet.Contracts
@@ -7,6 +8,6 @@ namespace GIBDotNet.Contracts
         where TRequest : class, new()
         where TResponse : class, new ()
     {
-        Task<TResponse> DispatchCommand(TRequest request);
+        Task<BaseGIBResponse<TResponse>> DispatchCommand(TRequest requestModel);
     }
 }

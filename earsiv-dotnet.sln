@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GIBDotNet", "GIBDotNet\GIBDotNet.csproj", "{20E0E549-C7B0-472B-A2C0-3A3EDC2390E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GIBDotNet", "GIBDotNet\GIBDotNet.csproj", "{20E0E549-C7B0-472B-A2C0-3A3EDC2390E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GIBDotNet.IntegrationTests", "GIBDotNet.IntegrationTests\GIBDotNet.IntegrationTests.csproj", "{113FA7C9-E71C-4F3C-8CA1-A52DF33C92D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +17,15 @@ Global
 		{20E0E549-C7B0-472B-A2C0-3A3EDC2390E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20E0E549-C7B0-472B-A2C0-3A3EDC2390E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20E0E549-C7B0-472B-A2C0-3A3EDC2390E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{113FA7C9-E71C-4F3C-8CA1-A52DF33C92D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{113FA7C9-E71C-4F3C-8CA1-A52DF33C92D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{113FA7C9-E71C-4F3C-8CA1-A52DF33C92D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{113FA7C9-E71C-4F3C-8CA1-A52DF33C92D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A335FFEA-BFFB-417C-A2F5-277FDA34AFE3}
 	EndGlobalSection
 EndGlobal

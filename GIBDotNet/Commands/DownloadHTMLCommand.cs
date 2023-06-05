@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace GIBDotNet.Commands
 {
+    /// <summary>
+    /// Oluşturulan faturayı zip olarak indirmek için kullanılır
+    /// </summary>
     public class DownloadHTMLCommand : BaseGIBCommand, IGIBCommand<DownloadHTMLCommandRequestModel, DownloadHTMLCommandResponseModel>
     {
         public async Task<BaseGIBResponse<DownloadHTMLCommandResponseModel>> DispatchCommand(DownloadHTMLCommandRequestModel requestModel)

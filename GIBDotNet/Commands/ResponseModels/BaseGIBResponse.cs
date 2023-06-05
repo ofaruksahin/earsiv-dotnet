@@ -5,8 +5,17 @@ namespace GIBDotNet.Commands.ResponseModels
     public class BaseGIBResponse<TResponse>
         where TResponse : class, new()
     {
+        /// <summary>
+        /// GIB tarafından dönen cevabı tutar
+        /// </summary>
         public TResponse Data { get; private set; }
+        /// <summary>
+        /// İşlemin başarılı olup olmadığını tutar
+        /// </summary>
         public bool IsSuccess { get; private set; }
+        /// <summary>
+        /// GIB tarafından dönen hataları tutar
+        /// </summary>
         public IEnumerable<string> Errors { get; set; }
 
         public BaseGIBResponse()

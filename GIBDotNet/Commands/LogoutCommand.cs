@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace GIBDotNet.Commands
 {
+    /// <summary>
+    /// GIB tarafında açılan oturumu sonlandırmak için kullanılır
+    /// </summary>
     public class LogoutCommand : BaseGIBCommand, IGIBCommand<LogoutCommandRequestModel, LogoutCommandResponseModel>
     {
         public async Task<BaseGIBResponse<LogoutCommandResponseModel>> DispatchCommand(LogoutCommandRequestModel requestModel)

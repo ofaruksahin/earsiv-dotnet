@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace GIBDotNet.Commands
 {
+    /// <summary>
+    /// GIB tarafında oturum açmak için kullanılır
+    /// </summary>
     public class GetTokenCommand : BaseGIBCommand, IGIBCommand<GetTokenCommandRequestModel, GetTokenCommandResponseModel>
     {
         public async Task<BaseGIBResponse<GetTokenCommandResponseModel>> DispatchCommand(GetTokenCommandRequestModel requestModel)

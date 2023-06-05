@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace GIBDotNet.Commands
 {
+    /// <summary>
+    /// Taslak fatura oluşturmak için kullanılır
+    /// </summary>
     public class CreateDraftInvoiceCommand : BaseGIBCommand, IGIBCommand<CreateDraftInvoiceRequestModel, CreateDraftInvoiceCommandResponseModel>
     {
         public async Task<BaseGIBResponse<CreateDraftInvoiceCommandResponseModel>> DispatchCommand(CreateDraftInvoiceRequestModel requestModel)

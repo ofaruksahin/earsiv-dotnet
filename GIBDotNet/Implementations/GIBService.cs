@@ -2,6 +2,7 @@
 using GIBDotNet.Commands.RequestModels;
 using GIBDotNet.Commands.ResponseModels;
 using GIBDotNet.Contracts;
+using System;
 using System.Threading.Tasks;
 
 namespace GIBDotNet.Implementations
@@ -58,6 +59,12 @@ namespace GIBDotNet.Implementations
         {
             var requestModel = new DownloadHTMLCommandRequestModel(token, ettn);
             return _commandDispatcher.Dispatch(new DownloadHTMLCommand(), requestModel);
+        }
+
+        public Task<BaseGIBResponse<GetInvoiceByEttnResponseModel>> GetInvoiceByEttn(string token, string ettn, DateTime startDate, DateTime endDate)
+        {
+            var requestModel = new GetInvoiceByEttnRequestModel(token, ettn, startDate, endDate);
+            return _commandDispatcher.Dispatch(new GetInvoiceByEttnCommand(), requestModel);
         }
     }
 }

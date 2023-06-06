@@ -91,8 +91,15 @@ namespace GIBDotNet.Commands.GIBRequestModels
             fatura.faturaTipi = "SATIS";
             fatura.hangiTip = "5000/30000";
             fatura.vknTckn = requestModel.VKN;
-            fatura.aliciAdi = requestModel.Name;
-            fatura.aliciSoyadi = requestModel.Surname;
+            if (fatura.vknTckn.Length == 11)
+            {
+                fatura.aliciAdi = requestModel.Name;
+                fatura.aliciSoyadi = requestModel.Surname;
+            }
+            else
+            {
+                fatura.aliciUnvan = requestModel.Name;
+            }
             fatura.binaAdi = string.Empty;
             fatura.binaNo = string.Empty;
             fatura.kapiNo = string.Empty;

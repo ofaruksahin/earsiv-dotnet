@@ -1,5 +1,6 @@
 ﻿using GIBDotNet.Commands.RequestModels;
 using GIBDotNet.Commands.ResponseModels;
+using System;
 using System.Threading.Tasks;
 
 namespace GIBDotNet.Contracts
@@ -35,5 +36,15 @@ namespace GIBDotNet.Contracts
         /// <param name="ettn">Taslak fatura oluştururken verdiğiniz ettn numarası</param>
         /// <returns></returns>
         Task<BaseGIBResponse<DownloadHTMLCommandResponseModel>> DownloadHTML(string token, string ettn);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="token"></param>
+        /// <param name="ettn"></param>
+        /// <param name="startDate"></param>
+        /// <param name="endDate"></param>
+        /// <returns></returns>
+        Task<BaseGIBResponse<GetInvoiceByEttnResponseModel>> GetInvoiceByEttn(string token, string ettn, DateTime startDate, DateTime endDate);
     }
 }

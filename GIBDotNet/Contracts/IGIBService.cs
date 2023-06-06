@@ -1,6 +1,7 @@
 ﻿using GIBDotNet.Commands.RequestModels;
 using GIBDotNet.Commands.ResponseModels;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace GIBDotNet.Contracts
@@ -55,5 +56,7 @@ namespace GIBDotNet.Contracts
         /// <param name="endDate"></param>
         /// <returns></returns>
         Task<BaseGIBResponse<GetInvoicesByDateRangeCommandResponseModel>> GetInvoiceByDateRange(string token, DateTime startDate, DateTime endDate);
+        Task<BaseGIBResponse<DeleteInvoiceCommandResponseModel>> DeleteInvoice(string token, GetInvoiceItem invoice,string cause);
+        Task<BaseGIBResponse<DeleteInvoiceCommandResponseModel>> DeleteInvoices(string token, List<GetInvoiceItem> invoices,string cause);
     }
 }

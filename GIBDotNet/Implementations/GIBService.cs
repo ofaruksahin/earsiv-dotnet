@@ -3,6 +3,7 @@ using GIBDotNet.Commands.RequestModels;
 using GIBDotNet.Commands.ResponseModels;
 using GIBDotNet.Contracts;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace GIBDotNet.Implementations
@@ -71,6 +72,18 @@ namespace GIBDotNet.Implementations
         {
             var requestModel = new GetInvoicesByDateRangeCommandRequestModel(token, startDate, endDate);
             return _commandDispatcher.Dispatch(new GetInvoicesByDateRangeCommand(), requestModel);
+        }
+
+        public Task<BaseGIBResponse<DeleteInvoiceCommandResponseModel>> DeleteInvoice(string token, GetInvoiceItem invoice, string cause)
+        {
+            var requestModel = new DeleteInvoiceCommandRequestModel(token, new List<GetInvoiceItem> { invoice }, cause);
+            return _commandDispatcher.Dispatch(new DeleteInvoiceCommand(), requestModel);
+        }
+
+        public Task<BaseGIBResponse<DeleteInvoiceCommandResponseModel>> DeleteInvoices(string token, List<GetInvoiceItem> invoices, string cause)
+        {
+            var requestModel = new DeleteInvoiceCommandRequestModel(token, invoices, cause);
+            return _commandDispatcher.Dispatch(new DeleteInvoiceCommand(), requestModel);
         }
     }
 }

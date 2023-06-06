@@ -1,29 +1,27 @@
-﻿using GIBDotNet.Commands.GIBRequestModels;
+﻿using System;
+using System.Diagnostics;
+using System.Text.Json;
+using System.Threading.Tasks;
+using GIBDotNet.Commands.GIBRequestModels;
 using GIBDotNet.Commands.GIBResponseModels;
 using GIBDotNet.Commands.RequestModels;
 using GIBDotNet.Commands.ResponseModels;
 using GIBDotNet.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace GIBDotNet.Commands
 {
-    public class GetInvoiceByEttnCommand : BaseGIBCommand, IGIBCommand<GetInvoiceByEttnRequestModel, GetInvoiceByEttnResponseModel>
+    public class GetInvoicesByDateRangeCommand : BaseGIBCommand, IGIBCommand<GetInvoicesByDateRangeCommandRequestModel, GetInvoicesByDateRangeCommandResponseModel>
     {
-        public async Task<BaseGIBResponse<GetInvoiceByEttnResponseModel>> DispatchCommand(GetInvoiceByEttnRequestModel requestModel)
+        public async Task<BaseGIBResponse<GetInvoicesByDateRangeCommandResponseModel>> DispatchCommand(GetInvoicesByDateRangeCommandRequestModel requestModel)
         {
-            var responseModel = new BaseGIBResponse<GetInvoiceByEttnResponseModel>();
+            var responseModel = new BaseGIBResponse<GetInvoicesByDateRangeCommandResponseModel>();
             try
             {
                 MakeCommand("earsiv-services/dispatch");
                 AddReferer($"index.jsp?token={requestModel.Token}&v=1685997258289");
-                var cmd = CommandConstants.GetCommandTitle(typeof(GetInvoiceByEttnCommand));
+                var cmd = CommandConstants.GetCommandTitle(typeof(GetInvoicesByDateRangeCommand));
                 var callId = Guid.NewGuid().ToString().Substring(0, 15);
-                var pageName = CommandConstants.GetPageTitle(typeof(GetInvoiceByEttnCommand));
+                var pageName = CommandConstants.GetPageTitle(typeof(GetInvoicesByDateRangeCommand));
                 var gibRequestModel = new GetInvoicesGIBRequestModel(requestModel);
                 var gibRequestModelSerialized = JsonSerializer.Serialize(gibRequestModel);
                 var gibRequestModelEncoded = System.Web.HttpUtility.UrlEncode(gibRequestModelSerialized);
@@ -34,14 +32,7 @@ namespace GIBDotNet.Commands
                 if (!ValidateResponse(restResponse, out GetInvoicesGIBResponseModel gibResponse, out responseModel))
                     return responseModel;
 
-                var invoice = gibResponse.Data.FirstOrDefault(f => f.Ettn == requestModel.Ettn);
-                if(invoice == null)
-                {
-                    responseModel.Fail(new List<string> { "Invoice not found" });
-                    return responseModel;
-                }
-
-                responseModel.Success(new GetInvoiceByEttnResponseModel(invoice));
+                responseModel.Success(new GetInvoicesByDateRangeCommandResponseModel(gibResponse));
             }
             catch (Exception ex)
             {
@@ -52,3 +43,4 @@ namespace GIBDotNet.Commands
         }
     }
 }
+

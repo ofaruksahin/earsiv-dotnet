@@ -11,13 +11,15 @@ namespace GIBDotNet
         {
             {typeof(CreateDraftInvoiceCommand),"EARSIV_PORTAL_FATURA_OLUSTUR" },
             {typeof(DownloadHTMLCommand),"EARSIV_PORTAL_BELGE_INDIR" },
-            {typeof(GetInvoiceByEttnCommand),"EARSIV_PORTAL_TASLAKLARI_GETIR" }
+            {typeof(GetInvoiceByEttnCommand),"EARSIV_PORTAL_TASLAKLARI_GETIR" },
+            {typeof(GetInvoicesByDateRangeCommand),"EARSIV_PORTAL_TASLAKLARI_GETIR" }
         };
 
         private static IDictionary<Type, string> PageTitles = new Dictionary<Type, string>
         {
             {typeof(CreateDraftInvoiceCommand),"RG_BASITFATURA" },
-            {typeof(GetInvoiceByEttnCommand),"RG_TASLAKLAR" }
+            {typeof(GetInvoiceByEttnCommand),"RG_TASLAKLAR" },
+            {typeof(GetInvoicesByDateRangeCommand),"RG_TASLAKLAR" }
         };
 
         public static string GetCommandTitle(Type type)

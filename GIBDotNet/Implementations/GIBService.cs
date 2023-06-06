@@ -66,5 +66,11 @@ namespace GIBDotNet.Implementations
             var requestModel = new GetInvoiceByEttnRequestModel(token, ettn, startDate, endDate);
             return _commandDispatcher.Dispatch(new GetInvoiceByEttnCommand(), requestModel);
         }
+
+        public Task<BaseGIBResponse<GetInvoicesByDateRangeCommandResponseModel>> GetInvoiceByDateRange(string token, DateTime startDate, DateTime endDate)
+        {
+            var requestModel = new GetInvoicesByDateRangeCommandRequestModel(token, startDate, endDate);
+            return _commandDispatcher.Dispatch(new GetInvoicesByDateRangeCommand(), requestModel);
+        }
     }
 }

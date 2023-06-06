@@ -46,5 +46,14 @@ namespace GIBDotNet.Contracts
         /// <param name="endDate"></param>
         /// <returns></returns>
         Task<BaseGIBResponse<GetInvoiceByEttnResponseModel>> GetInvoiceByEttn(string token, string ettn, DateTime startDate, DateTime endDate);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="token"></param>
+        /// <param name="startDate"></param>
+        /// <param name="endDate"></param>
+        /// <returns></returns>
+        Task<BaseGIBResponse<GetInvoicesByDateRangeCommandResponseModel>> GetInvoiceByDateRange(string token, DateTime startDate, DateTime endDate);
     }
 }

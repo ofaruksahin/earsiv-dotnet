@@ -1,32 +1,18 @@
 ﻿using System;
 using System.Globalization;
-using static GIBDotNet.Commands.GIBResponseModels.GetInvoiceByEttnGIBResponseModel;
+using GIBDotNet.Commands.GIBResponseModels;
+using static GIBDotNet.Commands.GIBResponseModels.GetInvoicesGIBResponseModel;
 
 namespace GIBDotNet.Commands.ResponseModels
 {
-    public class GetInvoiceByEttnResponseModel
+    public class GetInvoiceByEttnResponseModel : GetInvoiceItem
     {
-        public string DocumentId { get; private set; }
-        public string VKN { get; private set; }
-        public string NameSurname { get; private set; }
-        public DateTime Date { get; private set; }
-        public string DocumentType { get; private set; }
-        public string ApproveStatus { get; private set; }
-        public string Ettn { get; private set; }
-
         public GetInvoiceByEttnResponseModel()
         {
         }
 
-        public GetInvoiceByEttnResponseModel(GetInvoiceByEttnItem gibResponse)
+        public GetInvoiceByEttnResponseModel(GetInvoiceGIBResponse gibResponse) : base(gibResponse)
         {
-            DocumentId = gibResponse.DocumentId;
-            VKN = gibResponse.VKN;
-            NameSurname = gibResponse.NameSurname;
-            Date = DateTime.ParseExact(gibResponse.Date, "dd-MM-yyyy",CultureInfo.InvariantCulture);
-            DocumentType = gibResponse.DocumentType;
-            ApproveStatus = gibResponse.ApproveStatus;
-            Ettn = gibResponse.Ettn;
         }
     }
 }

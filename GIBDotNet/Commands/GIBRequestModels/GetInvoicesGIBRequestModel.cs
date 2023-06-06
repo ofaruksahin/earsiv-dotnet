@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace GIBDotNet.Commands.GIBRequestModels
 {
-    public class GetInvoiceByEttnGIBRequestModel
+    public class GetInvoicesGIBRequestModel
     {
         [JsonPropertyName("baslangic")]
         public string StartDate { get; private set; }
@@ -12,7 +12,14 @@ namespace GIBDotNet.Commands.GIBRequestModels
         [JsonPropertyName("hangiTip")]
         public string Type { get; private set; }
 
-        public GetInvoiceByEttnGIBRequestModel(GetInvoiceByEttnRequestModel requestModel)
+        public GetInvoicesGIBRequestModel(GetInvoiceByEttnRequestModel requestModel)
+        {
+            StartDate = requestModel.StartDate.ToString("dd/MM/yyyy");
+            EndDate = requestModel.EndDate.ToString("dd/MM/yyyy");
+            Type = "Buyuk";
+        }
+
+        public GetInvoicesGIBRequestModel(GetInvoicesByDateRangeCommandRequestModel requestModel)
         {
             StartDate = requestModel.StartDate.ToString("dd/MM/yyyy");
             EndDate = requestModel.EndDate.ToString("dd/MM/yyyy");

@@ -58,15 +58,18 @@ namespace GIBDotNet.Commands.GIBRequestModels
             {
             }
 
-            public DeleteInvoiceItem(GetInvoiceItem invoiceItem)
+            public DeleteInvoiceItem(GetInvoiceItem invoiceItem,bool signedInvoice = false)
             {
                 Oid = string.Empty;
                 Price = "0";
                 DocumentId = invoiceItem.DocumentId;
                 BuyerVKN = string.Empty;
                 BuyerNameSurname = string.Empty;
-                //BuyerVKN = invoiceItem.VKN;
-                //BuyerNameSurname = invoiceItem.NameSurname;
+                if (signedInvoice)
+                {
+                    BuyerVKN = invoiceItem.VKN;
+                    BuyerNameSurname = invoiceItem.NameSurname;
+                }
                 Date = invoiceItem.Date.ToString("dd-MM-yyyy");
                 ApproveStatus = invoiceItem.ApproveStatus;
                 Ettn = invoiceItem.Ettn;

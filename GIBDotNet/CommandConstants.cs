@@ -2,6 +2,7 @@
 using GIBDotNet.Exceptions;
 using System;
 using System.Collections.Generic;
+using static GIBDotNet.Commands.SendVerifySMSCommand;
 
 namespace GIBDotNet
 {
@@ -13,7 +14,9 @@ namespace GIBDotNet
             {typeof(DownloadHTMLCommand),"EARSIV_PORTAL_BELGE_INDIR" },
             {typeof(GetInvoiceByEttnCommand),"EARSIV_PORTAL_TASLAKLARI_GETIR" },
             {typeof(GetInvoicesByDateRangeCommand),"EARSIV_PORTAL_TASLAKLARI_GETIR" },
-            {typeof(DeleteInvoiceCommand),"EARSIV_PORTAL_FATURA_SIL" }
+            {typeof(DeleteInvoiceCommand),"EARSIV_PORTAL_FATURA_SIL" },
+            {typeof(SendVerifySMSCommandStep1),"EARSIV_PORTAL_TELEFONNO_SORGULA" },
+            {typeof(SendVerifySMSCommandStep2),"SIDE.GET_EAGER_BF_DEFS" }
         };
 
         private static IDictionary<Type, string> PageTitles = new Dictionary<Type, string>
@@ -21,7 +24,9 @@ namespace GIBDotNet
             {typeof(CreateDraftInvoiceCommand),"RG_BASITFATURA" },
             {typeof(GetInvoiceByEttnCommand),"RG_TASLAKLAR" },
             {typeof(GetInvoicesByDateRangeCommand),"RG_TASLAKLAR" },
-            {typeof(DeleteInvoiceCommand),"RG_TASLAKLAR" }
+            {typeof(DeleteInvoiceCommand),"RG_TASLAKLAR" },
+            {typeof(SendVerifySMSCommandStep1),"RG_BASITTASLAKLAR" },
+            {typeof(SendVerifySMSCommandStep2),"undefined" }
         };
 
         public static string GetCommandTitle(Type type)

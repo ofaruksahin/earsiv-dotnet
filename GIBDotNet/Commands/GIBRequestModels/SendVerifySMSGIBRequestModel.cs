@@ -51,6 +51,30 @@ namespace GIBDotNet.Commands.GIBRequestModels
                 UserId = userId;
             }
         }
+
+        public class SendVerifySMSGIBStep3RequestModel
+        {
+            [JsonIgnore]
+            public string Token { get;private set; }
+            [JsonPropertyName("CEPTEL")]
+            public string PhoneNumber { get;private set; }
+            [JsonPropertyName("KCEPTEL")]
+            public bool PhoneNumber2 { get;private set; }
+            [JsonPropertyName("TIP")]
+            public string TIP { get; private set; }
+
+            public SendVerifySMSGIBStep3RequestModel()
+            {
+            }
+
+            public SendVerifySMSGIBStep3RequestModel(string token, string phoneNumber)
+            {
+                Token = token;
+                PhoneNumber = phoneNumber;
+                PhoneNumber2 = false;
+                TIP = string.Empty;
+            }
+        }
     }
 }
 

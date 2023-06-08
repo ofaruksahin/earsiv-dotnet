@@ -16,7 +16,8 @@ namespace GIBDotNet
             {typeof(GetInvoicesByDateRangeCommand),"EARSIV_PORTAL_TASLAKLARI_GETIR" },
             {typeof(DeleteInvoiceCommand),"EARSIV_PORTAL_FATURA_SIL" },
             {typeof(SendVerifySMSCommandStep1),"EARSIV_PORTAL_TELEFONNO_SORGULA" },
-            {typeof(SendVerifySMSCommandStep2),"SIDE.GET_EAGER_BF_DEFS" }
+            {typeof(SendVerifySMSCommandStep2),"SIDE.GET_EAGER_BF_DEFS" },
+            {typeof(SendVerifySMSCommandStep3),"EARSIV_PORTAL_SMSSIFRE_GONDER" }
         };
 
         private static IDictionary<Type, string> PageTitles = new Dictionary<Type, string>
@@ -26,7 +27,8 @@ namespace GIBDotNet
             {typeof(GetInvoicesByDateRangeCommand),"RG_TASLAKLAR" },
             {typeof(DeleteInvoiceCommand),"RG_TASLAKLAR" },
             {typeof(SendVerifySMSCommandStep1),"RG_BASITTASLAKLAR" },
-            {typeof(SendVerifySMSCommandStep2),"undefined" }
+            {typeof(SendVerifySMSCommandStep2),"undefined" },
+            {typeof(SendVerifySMSCommandStep3),"RG_SMSONAY" }
         };
 
         public static string GetCommandTitle(Type type)

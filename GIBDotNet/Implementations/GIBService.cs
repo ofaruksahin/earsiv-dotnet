@@ -85,5 +85,11 @@ namespace GIBDotNet.Implementations
             var requestModel = new DeleteInvoiceCommandRequestModel(token, invoices, cause);
             return _commandDispatcher.Dispatch(new DeleteInvoiceCommand(), requestModel);
         }
+
+        public Task<BaseGIBResponse<SendVerifySMSCommandResponseModel>> SendVerifySms(string token)
+        {
+            var requestModel = new SendVerifySMSCommandRequestModel(token);
+            return _commandDispatcher.Dispatch(new SendVerifySMSCommand(), requestModel);
+        }
     }
 }

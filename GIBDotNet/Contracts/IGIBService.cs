@@ -58,5 +58,6 @@ namespace GIBDotNet.Contracts
         Task<BaseGIBResponse<GetInvoicesByDateRangeCommandResponseModel>> GetInvoiceByDateRange(string token, DateTime startDate, DateTime endDate);
         Task<BaseGIBResponse<DeleteInvoiceCommandResponseModel>> DeleteInvoice(string token, GetInvoiceItem invoice,string cause);
         Task<BaseGIBResponse<DeleteInvoiceCommandResponseModel>> DeleteInvoices(string token, List<GetInvoiceItem> invoices,string cause);
+        Task<BaseGIBResponse<SendVerifySMSCommandResponseModel>> SendVerifySms(string token);
     }
 }
